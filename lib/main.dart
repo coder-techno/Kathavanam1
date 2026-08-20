@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'features/auth/screens/splash_screen.dart';
+import 'core/routes/app_router.dart'; // Import app router
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,9 +10,10 @@ void main() async {
 class KathaVanamApp extends StatelessWidget {
   const KathaVanamApp({super.key});
 
+  @gate
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'KathaVanam',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
@@ -27,7 +28,7 @@ class KathaVanamApp extends StatelessWidget {
         ),
         textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
       ),
-      home: const SplashScreen(),
+      routerConfig: appRouter, // GoRouter കോൺഫിഗറേഷൻ കണക്റ്റ് ചെയ്യുന്നു
     );
   }
 }
